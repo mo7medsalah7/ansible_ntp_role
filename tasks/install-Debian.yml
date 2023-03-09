@@ -1,22 +1,20 @@
 ---
-- name: Install NTP package
+- name:  Install NTP package
   apt:
-     name: ntp
-     state: present
-- name: Configure NTP
-  lineinfile:
-     path: /etc/ntp.conf
-     regexp: '^server'
-     line: 'server 0.africa.pool.ntp.org'
-  notify: restart ntpd
-- name: Start NTP service
-  service:
-     name: ntpd
-     state: started
-     enabled: yes
-
-- name: Set Timezone
-  timezone:
-      name: "{{  ntp_timezone }}"
+    - name: "" {{service_name}} ""
       state: present
-
+- name: configure ntp
+  lineinfile:
+    path: /etc/ntp.conf
+    regexp: '^server'
+    line: 'server 0.africa.pool.ntp.org'
+  notify: restart ntpd
+- name: start ntp service
+  service:
+    name: "" {{service_name}} ""
+    state: started
+    enabled: yes
+- name: set timezone
+  timezone:
+    name: Africa/Cairo
+    state: present 
