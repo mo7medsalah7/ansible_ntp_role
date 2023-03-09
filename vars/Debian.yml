@@ -1,1 +1,1 @@
-service_name = chrony
+service_name: ntp
