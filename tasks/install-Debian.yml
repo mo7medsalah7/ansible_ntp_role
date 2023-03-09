@@ -17,4 +17,3 @@
 - name: set timezone
   timezone:
     name: Africa/Cairo
-    state: present 
